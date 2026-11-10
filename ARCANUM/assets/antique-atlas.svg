@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 760">
+<defs>
+ <filter id="grain"><feTurbulence type="fractalNoise" baseFrequency=".7" numOctaves="3" stitchTiles="stitch"/><feColorMatrix values=".45 0 0 0 .35 .35 0 0 0 .22 .2 0 0 0 .08 0 0 0 .18 0"/></filter>
+ <radialGradient id="paper"><stop stop-color="#e4d3a9"/><stop offset=".78" stop-color="#cbb487"/><stop offset="1" stop-color="#8b6840"/></radialGradient>
+ <pattern id="lines" width="32" height="32" patternUnits="userSpaceOnUse"><path d="M0 32L32 0" stroke="#6e5638" stroke-opacity=".12" stroke-width=".7"/></pattern>
+</defs>
+<rect x="18" y="18" width="1064" height="724" rx="5" fill="url(#paper)" stroke="#b08a55" stroke-width="8"/>
+<rect x="35" y="35" width="1030" height="690" fill="url(#lines)" stroke="#745a37" stroke-width="2"/>
+<rect x="42" y="42" width="1016" height="676" fill="none" stroke="#f0dfb6" stroke-opacity=".65" stroke-width="2"/>
+<g fill="none" stroke="#715735" stroke-width="2" opacity=".68">
+ <ellipse cx="550" cy="380" rx="430" ry="275"/><ellipse cx="550" cy="380" rx="290" ry="275"/><ellipse cx="550" cy="380" rx="145" ry="275"/>
+ <path d="M120 380H980M155 245H945M155 515H945M265 130Q550 380 835 630M265 630Q550 380 835 130" stroke-opacity=".55"/>
+</g>
+<g fill="#8a7048" fill-opacity=".38" stroke="#5f4b31" stroke-width="2.4" stroke-linejoin="round">
+ <path d="M195 242l43-38 52-14 27 18 49-10 21 28 45 12 12 32-26 23-39 1-22 38-45 5-22 38-31-3-18-40-42-17-18-33-34-10z"/>
+ <path d="M365 380l35-28 38 10 28 42-8 45-32 34-31-21-18-39z"/>
+ <path d="M510 220l35-18 28 18 35-10 28 26 43 8 12 29-36 22-25 35-41 3-23 31-38-12-5-39-33-28z"/>
+ <path d="M650 385l42-18 44 16 35 34-10 42-34 17-31-20-35 5-21-33z"/>
+ <path d="M790 240l55-28 44 17 22 39-24 28-46-2-36-25zM870 525l39-22 45 19-13 39-46 11z"/>
+</g>
+<g fill="none" stroke="#795c37" stroke-width="2" opacity=".62"><path d="M190 255q80-52 153 0M500 236q125-55 218 33M663 412q65-48 133 10M345 430q32 45 66 8" stroke-dasharray="5 7"/><path d="M550 380m-18 0a18 18 0 1 0 36 0a18 18 0 1 0-36 0"/></g>
+<g transform="translate(930 125)" fill="none" stroke="#634a2c" stroke-width="3"><circle r="42"/><circle r="30"/><path d="M0-56V56M-56 0H56M-38-38L38 38M38-38L-38 38"/><path d="M0-46L9-8 0 0-9-8Z" fill="#795a36"/><text x="0" y="-68" fill="#634a2c" stroke="none" font-size="16" text-anchor="middle" font-family="serif">N</text></g>
+<g fill="#5e482c" font-family="Georgia,serif" text-anchor="middle"><text x="550" y="91" font-size="26" letter-spacing="6">TABULA MUNDI</text><text x="550" y="678" font-size="15" letter-spacing="4">A STUDY OF THE KNOWN WORLD</text><text x="116" y="692" font-size="12">ARCANUM · FIELD PLATE I</text></g>
+<rect x="18" y="18" width="1064" height="724" filter="url(#grain)" opacity=".28"/>
+</svg>

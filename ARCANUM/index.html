@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#21160f">
+  <meta name="description" content="ARCANUM — an immersive archive of ancient civilizations, empires and forgotten histories.">
+  <title>ARCANUM — The Archive of Lost Civilizations</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800&family=IM+Fell+English:ital@0;1&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="stylesheet" href="css/layouts.css">
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://cdn.jsdelivr.net/npm/three@0.169.0/build/three.module.js",
+        "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.169.0/examples/jsm/"
+      }
+    }
+  </script>
+</head>
+<body data-layout="study">
+  <div class="site-noise" aria-hidden="true"></div>
+  <div class="page-vignette" aria-hidden="true"></div>
+
+  <header class="site-header" id="top">
+    <a class="brand" href="#top" aria-label="Arcanum home">
+      <span class="brand-mark">A</span>
+      <span class="brand-name">ARCANUM<small>THE ARCHIVE OF LOST CIVILIZATIONS</small></span>
+    </a>
+
+    <button class="menu-toggle" id="menuToggle" aria-label="Open navigation" aria-expanded="false">
+      <span></span><span></span>
+    </button>
+
+    <nav class="main-nav" id="mainNav" aria-label="Main navigation">
+      <a class="nav-link active" href="#home">The study</a>
+      <a class="nav-link" href="#archives">Collections</a>
+      <a class="nav-link" href="#chronicles">Chronicles</a>
+      <a class="nav-link" href="#timeline">Time ledger</a>
+      <a class="nav-link nav-cta" href="#archives">Browse the records <span>↗</span></a>
+    </nav>
+
+    <div class="experience-switcher" id="experienceSwitcher">
+      <button class="experience-switch-button" id="experienceSwitchButton" type="button"
+        aria-expanded="false" aria-controls="experienceMenu">
+        <span class="switch-button-icon" aria-hidden="true">✧</span>
+        <span class="switch-button-copy"><small>CHANGE EXPERIENCE</small><strong id="activeExperienceName">Scholar's Study</strong></span>
+        <span class="switch-button-caret" aria-hidden="true">⌄</span>
+      </button>
+      <div class="experience-menu" id="experienceMenu" role="group" aria-label="Choose a complete site layout" hidden>
+        <p class="experience-menu-kicker">CHOOSE YOUR WAY OF EXPLORING</p>
+        <button class="experience-option is-selected" type="button" data-layout-choice="study" aria-pressed="true">
+          <span class="option-symbol" aria-hidden="true">✧</span>
+          <span><strong>Scholar's Study</strong><small>A warm wooden study with instruments and manuscripts.</small></span>
+          <span class="option-check" aria-hidden="true">✓</span>
+        </button>
+        <button class="experience-option" type="button" data-layout-choice="atlas" aria-pressed="false">
+          <span class="option-symbol" aria-hidden="true">⌖</span>
+          <span><strong>Explorer's Atlas</strong><small>A map-led layout with a field index and expedition records.</small></span>
+          <span class="option-check" aria-hidden="true">✓</span>
+        </button>
+        <button class="experience-option" type="button" data-layout-choice="museum" aria-pressed="false">
+          <span class="option-symbol" aria-hidden="true">▧</span>
+          <span><strong>Grand Museum</strong><small>A gallery-like exhibition with framed artifact collections.</small></span>
+          <span class="option-check" aria-hidden="true">✓</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero section-shell" id="home">
+      <div class="hero-copy reveal">
+        <p class="eyebrow"><span class="eyebrow-line"></span> THE SCHOLAR'S STUDY · VOL. I</p>
+        <h1>Unlock the wisdom<br>of the <em>ancient world.</em></h1>
+        <p class="hero-description">Enter a room of maps, manuscripts and instruments. Follow the traces of ancient civilizations, and explore the places, ideas and discoveries that shaped our world.</p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="#archives">Open the collections <span>↗</span></a>
+          <a class="text-link" href="#chronicles">Read the chronicles <span>↓</span></a>
+        </div>
+        <div class="hero-footnote"><span class="status-dot"></span> A QUIET PLACE FOR THE STUDY OF HISTORY</div>
+      </div>
+
+      <div class="hero-art" id="heroArt" aria-label="Interactive three-dimensional brass astrolabe in an antique scholar study">
+        <div class="atlas-backdrop" aria-hidden="true"></div>
+        <canvas id="artifactCanvas"></canvas>
+        <div class="artifact-orbit orbit-one"></div>
+        <div class="artifact-orbit orbit-two"></div>
+        <div class="artifact-caption"><span>INSTRUMENT No. 001</span><span>THE BRASS ASTROLABE · الأسطرلاب</span></div>
+        <div class="artifact-hint"><span class="hint-icon">✣</span> MOVE TO EXAMINE THE INSTRUMENT</div>
+        <div class="hero-crosshair crosshair-a"></div>
+        <div class="hero-crosshair crosshair-b"></div>
+      </div>
+
+      <div class="hero-bottom">
+        <span>CATALOGUED FOR THE CURIOUS</span>
+        <span class="scroll-indicator">CONTINUE THROUGH THE STUDY <i></i></span>
+        <span>THE ANCIENT WORLD · FIELD NOTES</span>
+      </div>
+    </section>
+
+    <section class="study-tools section-shell" aria-labelledby="toolsHeading">
+      <div class="tools-heading">
+        <p class="eyebrow">OBJECTS OF INQUIRY</p>
+        <h2 id="toolsHeading">A scholar's instruments</h2>
+      </div>
+      <div class="instrument-row">
+        <article class="instrument-card">
+          <span class="instrument-glyph glyph-astrolabe" aria-hidden="true"><i></i><b></b></span>
+          <div><h3>Astrolabe</h3><p>Read the sky through brass and geometry.</p></div>
+        </article>
+        <article class="instrument-card">
+          <span class="instrument-glyph glyph-telescope" aria-hidden="true"><i></i></span>
+          <div><h3>Telescope</h3><p>A later instrument for observing distant worlds.</p></div>
+        </article>
+        <article class="instrument-card">
+          <span class="instrument-glyph glyph-compass" aria-hidden="true"></span>
+          <div><h3>Compass</h3><p>Find direction across unfamiliar lands.</p></div>
+        </article>
+        <article class="instrument-card">
+          <span class="instrument-glyph glyph-manuscript" aria-hidden="true"></span>
+          <div><h3>Manuscripts</h3><p>Preserve observations, stories and records.</p></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="intro section-shell" id="chronicles">
+      <div class="section-index">I <span>—</span> THE PURPOSE</div>
+      <div class="intro-content reveal">
+        <p class="eyebrow">NOTES FROM THE HISTORIAN'S DESK</p>
+        <h2>Time buries kingdoms.<br><em>Knowledge brings them back.</em></h2>
+        <p class="intro-text">ARCANUM is an evolving historical encyclopedia dedicated to the ancient world. From the first cities of Mesopotamia to the monumental empires of the Mediterranean, every record is an invitation to look closer.</p>
+      </div>
+      <div class="intro-seal" aria-hidden="true"><span>✧</span><small>VERITAS<br>MEMORIA<br>HISTORIA</small></div>
+    </section>
+
+    <section class="archives section-shell" id="archives">
+      <div class="section-heading reveal">
+        <div><p class="eyebrow">THE KNOWN WORLD · COLLECTIONS</p><h2>Enter the <em>archives.</em></h2></div>
+        <a class="text-link" href="#timeline">Follow the ages <span>↗</span></a>
+      </div>
+      <div class="civilization-grid" id="civilizationGrid"></div>
+    </section>
+
+    <section class="quote-band">
+      <div class="quote-ornament">✦</div>
+      <blockquote>“The past is never dead. It is not even past.”</blockquote>
+      <p>— WILLIAM FAULKNER</p>
+    </section>
+
+    <section class="timeline-section section-shell" id="timeline">
+      <div class="section-heading reveal">
+        <div><p class="eyebrow">A FRAGMENT OF ETERNITY</p><h2>Across the <em>ages.</em></h2></div>
+        <p class="section-note">A few milestones from the long and complex story of human civilization.</p>
+      </div>
+      <div class="timeline-list" id="timelineList"></div>
+    </section>
+
+    <section class="closing section-shell">
+      <div class="closing-frame reveal">
+        <span class="closing-symbol">✧</span>
+        <p class="eyebrow">THE SCHOLAR'S LAMP IS STILL LIT</p>
+        <h2>Every relic has<br>a story to <em>tell.</em></h2>
+        <a class="button button-primary" href="#top">Return to the study <span>↑</span></a>
+      </div>
+    </section>
+  </main>
+
+  <section class="archive-experience" id="archiveExperience" aria-hidden="true" aria-label="Interactive 3D civilization archive">
+    <div class="experience-topbar">
+      <a class="experience-brand" href="#top">ARCANUM <span> / FIELD ARCHIVE</span></a>
+      <button class="experience-close" id="closeArchive" aria-label="Close 3D archive"><span>×</span> CLOSE ARCHIVE</button>
+    </div>
+    <div class="experience-world"><canvas id="archiveCanvas" aria-label="Interactive 3D landmark. Drag to rotate."></canvas>
+      <div class="world-label world-label-left"><span class="label-rule"></span><span data-world-civilization>ANCIENT CIVILIZATION</span></div>
+      <div class="world-caption"><p class="eyebrow">ARCHIVE LANDMARK · 3D STUDY MODEL</p><h2 data-world-title>Landmark</h2><p data-world-period></p><div class="world-description" data-world-description></div><span class="world-hint">DRAG TO ROTATE <i>✣</i> EXPLORE THE STRUCTURE</span></div>
+      <div class="world-coordinate">ARCANUM / SPATIAL RECORD / 001</div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <a class="footer-brand" href="#top">ARCANUM<span>✧</span></a>
+    <p>A HISTORICAL STUDY · AN OPEN RECORD OF THE ANCIENT WORLD</p>
+    <span>© <span id="year"></span> ARCANUM. BUILT FOR THE CURIOUS.</span>
+  </footer>
+
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>

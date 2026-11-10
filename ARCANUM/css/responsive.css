@@ -1,0 +1,28 @@
+@media(max-width:1100px){
+  .main-nav{gap:17px}.nav-link{font-size:8px}
+  .hero{grid-template-columns:1fr 1fr}.hero-copy{padding-left:18px}.hero h1{font-size:clamp(39px,5vw,59px)}
+  .civilization-grid{grid-template-columns:repeat(2,1fr)}
+  .intro{grid-template-columns:.5fr 2fr}.intro-seal{display:none}
+  .study-tools{grid-template-columns:1fr;gap:18px}.instrument-row{grid-template-columns:repeat(4,1fr)}
+}
+@media(max-width:700px){
+  .section-shell{width:calc(100% - 38px)}
+  .site-header{height:76px;padding-inline:19px}.brand-name{font-size:14px}.brand-name small{font-size:6px}
+  .menu-toggle{display:flex;width:40px;height:40px;border:1px solid var(--line);background:rgba(0,0,0,.12);flex-direction:column;justify-content:center;align-items:center;gap:6px}
+  .menu-toggle span{width:16px;height:1px;background:var(--brass-light)}
+  .main-nav{display:none;position:absolute;top:75px;left:0;right:0;padding:22px 20px 27px;background:rgba(31,21,14,.98);border-bottom:1px solid var(--line);flex-direction:column;align-items:stretch;gap:22px}
+  .main-nav.open{display:flex}.nav-link{font-size:10px}.nav-cta{text-align:center}
+  .hero{min-height:850px;height:auto;max-height:none;display:flex;flex-direction:column;align-items:stretch;padding-top:65px}
+  .hero::before{inset:18px 0 48px}.hero-copy{padding:0 8px}.hero h1{font-size:clamp(39px,11vw,57px)}
+  .hero-description{font-size:11px}.hero-footnote{margin-top:30px}.hero-art{min-height:390px;height:390px;margin-top:8px}
+  .atlas-backdrop{width:100%;left:0;top:10%}.artifact-caption{bottom:32px}.artifact-hint{top:12%;right:2%}
+  .hero-bottom{position:relative;margin-top:0;font-size:6px}.hero-bottom>span:first-child{display:none}
+  .study-tools{padding:25px 0 28px;gap:15px}.tools-heading h2{font-size:21px}.instrument-row{grid-template-columns:1fr 1fr;gap:8px}.instrument-card{min-height:92px;padding:9px;grid-template-columns:42px 1fr;gap:8px}.instrument-glyph{transform:scale(.85);transform-origin:center}
+  .intro{padding-block:88px;display:block}.section-index{margin-bottom:32px}.intro h2,.section-heading h2,.closing h2{font-size:33px}
+  .archives,.timeline-section{padding-block:82px}.section-heading{align-items:start;gap:18px;flex-direction:column}
+  .civilization-grid{grid-template-columns:1fr 1fr;gap:9px}.civilization-card{min-height:265px;padding:14px}.civilization-card h3{font-size:15px}.civilization-card p{font-size:9px}
+  .timeline-item{grid-template-columns:1fr;gap:9px;padding:22px 4px}.timeline-date{font-size:12px}
+  .closing{padding-bottom:78px}.closing-frame{padding:65px 15px}
+  .site-footer{padding:25px 19px;flex-direction:column;gap:13px;text-align:center}
+}
+@media(max-width:390px){.civilization-grid{grid-template-columns:1fr}.civilization-card{min-height:300px}.hero-actions{gap:15px;flex-wrap:wrap}.button{padding-inline:14px}.instrument-card p{font-size:8px}}

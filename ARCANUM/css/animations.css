@@ -1,0 +1,134 @@
+.reveal{opacity:0;transform:translateY(20px);transition:opacity .85s ease,transform .85s cubic-bezier(.2,.7,.2,1)}
+.reveal.is-visible{opacity:1;transform:translateY(0)}
+.hero-copy{animation:heroEnter 1.05s .12s both}
+@keyframes heroEnter{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+.brand-mark{animation:sealTurn 24s linear infinite}
+@keyframes sealTurn{to{transform:rotate(405deg)}}
+.status-dot{animation:emberPulse 3.4s ease-in-out infinite}
+@keyframes emberPulse{50%{box-shadow:0 0 16px 4px rgba(216,184,120,.25);opacity:.7}}
+.artifact-orbit{animation:orbitDrift 32s linear infinite}.orbit-two{animation-direction:reverse;animation-duration:42s}
+@keyframes orbitDrift{to{transform:translate(-50%,-50%) rotate(336deg)}}
+.instrument-card{transition:background .3s,border-color .3s,transform .3s}
+.instrument-card:hover{transform:translateY(-3px);border-color:rgba(216,184,120,.46);background:rgba(216,184,120,.07)}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}.reveal{opacity:1;transform:none}}
+
+/* Full-page experience morph: an antique seal expands from the selected option,
+   covers the current composition, then contracts to reveal the new structure. */
+.experience-morph-overlay {
+  --morph-x: 50vw;
+  --morph-y: 50vh;
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  pointer-events: none;
+  clip-path: circle(0 at var(--morph-x) var(--morph-y));
+  transform-origin: var(--morph-x) var(--morph-y);
+  will-change: clip-path, transform, opacity, filter, border-radius;
+  isolation: isolate;
+}
+.experience-morph-overlay::before,
+.experience-morph-overlay::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+.experience-morph-overlay::before {
+  opacity: .28;
+  background: repeating-linear-gradient(0deg,transparent 0 5px,rgba(255,245,218,.08) 6px,transparent 7px),
+              repeating-linear-gradient(90deg,transparent 0 8px,rgba(31,22,13,.06) 9px,transparent 10px);
+  mix-blend-mode: soft-light;
+}
+.experience-morph-overlay::after {
+  inset: 7vh 5vw;
+  border: 1px solid rgba(245,224,180,.42);
+  outline: 1px solid rgba(75,49,24,.22);
+  outline-offset: -10px;
+}
+.experience-morph-overlay.morph-to-study {
+  color: #f1dfb9;
+  background: radial-gradient(ellipse at 50% 44%,#795b36 0%,#392819 48%,#1b120c 100%);
+}
+.experience-morph-overlay.morph-to-atlas {
+  color: #49341f;
+  background: url("../assets/antique-atlas.svg") center/cover no-repeat,
+              radial-gradient(ellipse at center,#e7d5aa 0%,#b99b6a 58%,#65462a 100%);
+  background-blend-mode: soft-light,normal;
+}
+.experience-morph-overlay.morph-to-museum {
+  color: #f0dfbd;
+  background: radial-gradient(ellipse at 50% 42%,#b69a6a 0%,#655239 55%,#29241c 100%);
+}
+.experience-morph-seal {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 11px;
+  width: min(290px,72vw);
+  aspect-ratio: 1;
+  justify-content: center;
+  border: 1px solid currentColor;
+  border-radius: 50%;
+  outline: 1px solid currentColor;
+  outline-offset: 9px;
+  text-align: center;
+  text-shadow: 0 2px 12px rgba(0,0,0,.3);
+  animation: morphSealTurn 8s linear infinite;
+}
+.experience-morph-seal::before,
+.experience-morph-seal::after {
+  content: "";
+  position: absolute;
+  inset: 13px;
+  border: 1px solid currentColor;
+  border-radius: 50%;
+  opacity: .45;
+}
+.experience-morph-seal::after { inset: 27px; border-style: dashed; opacity: .28; }
+.morph-seal-symbol { font: 36px/1 var(--serif); }
+.experience-morph-seal strong { font: 600 20px var(--serif); letter-spacing: .22em; }
+.experience-morph-seal small { font: 9px var(--sans); letter-spacing: .2em; text-transform: uppercase; }
+@keyframes morphSealTurn { to { transform: rotate(360deg); } }
+
+body.is-layout-unfolding .site-header,
+body.is-layout-unfolding .hero,
+body.is-layout-unfolding .study-tools,
+body.is-layout-unfolding .intro,
+body.is-layout-unfolding .archives,
+body.is-layout-unfolding .quote-band,
+body.is-layout-unfolding .timeline-section,
+body.is-layout-unfolding .closing,
+body.is-layout-unfolding .site-footer {
+  animation: layoutUnfold .86s cubic-bezier(.18,.72,.2,1) both;
+}
+body.is-layout-unfolding .study-tools { animation-delay: .035s; }
+body.is-layout-unfolding .intro { animation-delay: .07s; }
+body.is-layout-unfolding .archives { animation-delay: .11s; }
+body.is-layout-unfolding .quote-band { animation-delay: .15s; }
+body.is-layout-unfolding .timeline-section { animation-delay: .19s; }
+body.is-layout-unfolding .closing { animation-delay: .23s; }
+@keyframes layoutUnfold {
+  0% { opacity: .46; transform: perspective(1400px) rotateX(5deg) translateY(24px) scale(.975); filter: blur(3px); }
+  65% { opacity: 1; filter: blur(0); }
+  100% { opacity: 1; transform: perspective(1400px) rotateX(0) translateY(0) scale(1); filter: blur(0); }
+}
+.experience-option:disabled,
+.experience-switch-button:disabled { cursor: wait; opacity: .65; }
+
+@media(prefers-reduced-motion:reduce) {
+  .experience-morph-overlay { display: none !important; }
+  body.is-layout-unfolding .site-header,
+  body.is-layout-unfolding .hero,
+  body.is-layout-unfolding .study-tools,
+  body.is-layout-unfolding .intro,
+  body.is-layout-unfolding .archives,
+  body.is-layout-unfolding .quote-band,
+  body.is-layout-unfolding .timeline-section,
+  body.is-layout-unfolding .closing,
+  body.is-layout-unfolding .site-footer { animation: none !important; }
+}
